@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【计组学习笔记】第四章——指令系统 | HappySuperman</title><meta name="author" content="HappySuperman"><meta name="copyright" content="HappySuperman"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="4.1 指令系统：​       指令：又称机器指令，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。 指令集：一台计算机的所有指令的集合构成该机的指令系统 指令系统（指令集）是指令集体系结构（ISA）中最核心的部分 4.1.1 指令的基本格式  操作码：指明做了什么动作   作用1：执行什么性质的操作，具有何种功能 作用2：识别指令、了解指令功能、区分操作数地址内容的组成和使用方法">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【计组学习笔记】第四章——指令系统 | HappySuperman</title><meta name="author" content="HappySuperman"><meta name="copyright" content="HappySuperman"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="4.1 指令系统： ​       指令：又称机器指令，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。 指令集：一台计算机的所有指令的集合构成该机的指令系统 指令系统（指令集）是指令集体系结构（ISA）中最核心的部分 4.1.1 指令的基本格式    操作码：指明做了什么动作    作用1：执行什么性质的操作，具有何种功能 作用2：识别指令、了解指令功能、区分操作数地址内容的组成和使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【计组学习笔记】第四章——指令系统">
 <meta property="og:url" content="http://happy-superman.github.io/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="HappySuperman">
-<meta property="og:description" content="4.1 指令系统：​       指令：又称机器指令，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。 指令集：一台计算机的所有指令的集合构成该机的指令系统 指令系统（指令集）是指令集体系结构（ISA）中最核心的部分 4.1.1 指令的基本格式  操作码：指明做了什么动作   作用1：执行什么性质的操作，具有何种功能 作用2：识别指令、了解指令功能、区分操作数地址内容的组成和使用方法">
+<meta property="og:description" content="4.1 指令系统： ​       指令：又称机器指令，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。 指令集：一台计算机的所有指令的集合构成该机的指令系统 指令系统（指令集）是指令集体系结构（ISA）中最核心的部分 4.1.1 指令的基本格式    操作码：指明做了什么动作    作用1：执行什么性质的操作，具有何种功能 作用2：识别指令、了解指令功能、区分操作数地址内容的组成和使">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2023-11-23T13:42:09.733Z">
@@ -153,44 +153,56 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="HappySuperman"><span class="site-name">HappySuperman</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【计组学习笔记】第四章——指令系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-23T13:42:09.733Z" title="Created 2023-11-23 21:42:09">2023-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-23T13:47:49.204Z" title="Updated 2023-11-23 21:47:49">2023-11-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/computer/">computer</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>4mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【计组学习笔记】第四章——指令系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="4-1-指令系统："><a href="#4-1-指令系统：" class="headerlink" title="4.1 指令系统："></a>4.1 指令系统：</h1><p>​       指令：又称<strong>机器指令</strong>，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。</p>
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="HappySuperman"><span class="site-name">HappySuperman</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【计组学习笔记】第四章——指令系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-23T13:42:09.733Z" title="Created 2023-11-23 21:42:09">2023-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-23T13:47:49.204Z" title="Updated 2023-11-23 21:47:49">2023-11-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/computer/">computer</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>4mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【计组学习笔记】第四章——指令系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="4-1-指令系统：">4.1 指令系统：</h1>
+<p>​       指令：又称<strong>机器指令</strong>，是指示计算机执行某种操作的命令，是计算机运行的最小功能单位。</p>
 <p>指令集：一台计算机的所有指令的集合构成该机的<strong>指令系统</strong></p>
 <p>指令系统（指令集）是指令集体系结构（ISA）中最核心的部分</p>
-<h2 id="4-1-1-指令的基本格式"><a href="#4-1-1-指令的基本格式" class="headerlink" title="4.1.1 指令的基本格式"></a>4.1.1 指令的基本格式</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700735562097-07f8460f-776a-48bc-8ce5-f9c50a5d51c0.png" alt="img"></p>
+<h2 id="4-1-1-指令的基本格式">4.1.1 指令的基本格式</h2>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700735562097-07f8460f-776a-48bc-8ce5-f9c50a5d51c0.png" alt="img"></p>
 <ul>
-<li><p>操作码：指明做了什么动作</p>
+<li>
+<p>操作码：指明做了什么动作</p>
 </li>
-<li><ul>
+<li>
+<ul>
 <li>作用1：执行什么性质的操作，具有何种功能</li>
 <li>作用2：识别指令、了解指令功能、区分操作数地址内容的组成和使用方法</li>
 <li>举例：停机中断、求反求补、加减乘除</li>
 </ul>
 </li>
-<li><p>地址码：指明对谁动手脚</p>
+<li>
+<p>地址码：指明对谁动手脚</p>
 </li>
-<li><ul>
+<li>
+<ul>
 <li>不需要操作对象</li>
 <li>需要一个操作对象</li>
 <li>需要两个操作对象</li>
 <li>特性：</li>
 </ul>
 </li>
-<li><ul>
-<li><ul>
-<li>n位地址码的直接寻址范围&#x3D;<img src="https://cdn.nlark.com/yuque/__latex/055ce37910d06a8239ef5a1ee87765f5.svg" alt="img"></li>
+<li>
+<ul>
+<li>
+<ul>
+<li>n位地址码的直接寻址范围=<img src="https://cdn.nlark.com/yuque/__latex/055ce37910d06a8239ef5a1ee87765f5.svg" alt="img"></li>
 <li>若指令总长度固定不变，则地址码数量越多，寻址能力越差</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>指令的长度：一条指令中所包含的二进制代码的位数</p>
+<li>
+<p>指令的长度：一条指令中所包含的二进制代码的位数</p>
 </li>
-<li><ul>
+<li>
+<ul>
 <li>指令字长取决于：</li>
 </ul>
 </li>
-<li><ul>
-<li><ul>
+<li>
+<ul>
+<li>
+<ul>
 <li>操作码的长度</li>
 <li>操作数<strong>地址码</strong>的长度</li>
 <li>操作数<strong>地址</strong>的个数</li>
@@ -198,12 +210,15 @@
 </li>
 </ul>
 </li>
-<li><ul>
+<li>
+<ul>
 <li>指令长度和机器字长无固定关系，但是可以进行分类：</li>
 </ul>
 </li>
-<li><ul>
-<li><ul>
+<li>
+<ul>
+<li>
+<ul>
 <li>单字长指令：指令长度等于机器字长的指令</li>
 <li>半字长指令：指令长度等于半个机器字长的指令</li>
 <li>双字长指令：指令长度等于两个机器字长的指令</li>
@@ -211,7 +226,8 @@
 </li>
 </ul>
 </li>
-<li><p>指令字长</p>
+<li>
+<p>指令字长</p>
 </li>
 </ul>
 <p>一条指令的总长度（可能会变）</p>
@@ -223,46 +239,60 @@
 <li>存储字长</li>
 </ul>
 <p>一个存储单元中的二进制代码位数（通常和MDR位数相同）</p>
-<h3 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h3><p> <img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700529939609-9f254304-23dc-4a9a-9d61-80949cf2c2cf.png" alt="img"></p>
-<p> <img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700530803938-6d4044e8-5482-4e7e-b826-8bb40a6b0cf7.png" alt="img"></p>
+<h3 id="整体框架">整体框架</h3>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700529939609-9f254304-23dc-4a9a-9d61-80949cf2c2cf.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700530803938-6d4044e8-5482-4e7e-b826-8bb40a6b0cf7.png" alt="img"></p>
 <p><strong>解释一下：</strong></p>
 <p><strong>MAR</strong>：地址寄存器 存放预访问的存储单元的地址，其位数对应存储单元的个数</p>
 <p><strong>MDR</strong>：数据寄存器 存放从存储体某单元取出的代码</p>
-<h3 id="1-零地址指令"><a href="#1-零地址指令" class="headerlink" title="1. 零地址指令"></a>1. 零地址指令</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700737333811-b69655d1-5b3c-492d-9f21-8f7924ec2c13.png" alt="img"></p>
+<h3 id="1-零地址指令">1. 零地址指令</h3>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700737333811-b69655d1-5b3c-492d-9f21-8f7924ec2c13.png" alt="img"></p>
 <p>只给出操作码OP，没有显式地址。有两种可能：</p>
-<p>  (1) 不需要操作数的指令，如空操作，停机，关中断等指令</p>
-<p>  (2) 零地址的运算类指令仅用在堆栈计算机中，两个操作数隐含存放在栈顶和次栈顶弹出，送到运算器进行运算，计算结果隐含的压回栈顶 类似“后缀表达式”</p>
-<h3 id="2-一地址指令"><a href="#2-一地址指令" class="headerlink" title="2. 一地址指令"></a>2. 一地址指令</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700528843600-4834a977-6e70-4c86-93b5-cec8be702aaa.png" alt="img"></p>
+<p>(1) 不需要操作数的指令，如空操作，停机，关中断等指令</p>
+<p>(2) 零地址的运算类指令仅用在堆栈计算机中，两个操作数隐含存放在栈顶和次栈顶弹出，送到运算器进行运算，计算结果隐含的压回栈顶 类似“后缀表达式”</p>
+<h3 id="2-一地址指令">2. 一地址指令</h3>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700528843600-4834a977-6e70-4c86-93b5-cec8be702aaa.png" alt="img"></p>
 <p>其中</p>
 <p><strong>ACC</strong>：Accumulator累加器，是运算器中既能存放运算前的操作数，又能存放运算结果的寄存器</p>
 <p><strong>ALU</strong>：算数逻辑单元，可以进行算术运算（加减乘除）逻辑运算（与或非异或）辅助功能（移位求补）</p>
 <p>对于寻址范围做出解释：</p>
 <p>指令字长为32为，操作码占8位，1个地址码字段占24位，则指令操作数的直接寻址范围为<img src="https://cdn.nlark.com/yuque/__latex/15d04819c5dddc99711267e7e27f0f98.svg" alt="img">bit</p>
-<p>进行单位换算为<img src="https://cdn.nlark.com/yuque/__latex/872f8e29a949503f528e4a65325b996e.svg" alt="img">* <img src="https://cdn.nlark.com/yuque/__latex/64636e8771ef215128139253c19e840a.svg" alt="img">位 &#x3D; 16 M</p>
-<h3 id="3-二地址指令"><a href="#3-二地址指令" class="headerlink" title="3. 二地址指令"></a>3. 二地址指令</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700527387652-2cf386f0-ff1e-4f7f-ac75-92bf857bee0f.png" alt="img"></p>
+<p>进行单位换算为<img src="https://cdn.nlark.com/yuque/__latex/872f8e29a949503f528e4a65325b996e.svg" alt="img">* <img src="https://cdn.nlark.com/yuque/__latex/64636e8771ef215128139253c19e840a.svg" alt="img">位 = 16 M</p>
+<h3 id="3-二地址指令">3. 二地址指令</h3>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700527387652-2cf386f0-ff1e-4f7f-ac75-92bf857bee0f.png" alt="img"></p>
 <p>其中目的操作数保存本次的运算结果</p>
 <p>对于寻址范围做出解释：</p>
 <p>指令字长为32为，操作码占8位，两个地址码字段各占12位，则指令操作数的直接寻址范围为<img src="https://cdn.nlark.com/yuque/__latex/15cd115f2a18cc8842ed3d8dc9d5372e.svg" alt="img">bit</p>
-<p>进行单位换算为<img src="https://cdn.nlark.com/yuque/__latex/47a0f3528006ad0757aa3a00b3fd6f5e.svg" alt="img">* <img src="https://cdn.nlark.com/yuque/__latex/f21b0a508bad7e226d4eebcb732edd1a.svg" alt="img">位 &#x3D; 4 K</p>
-<h3 id="4-三地址指令"><a href="#4-三地址指令" class="headerlink" title="4. 三地址指令"></a>4. 三地址指令</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700529808503-fc9a6875-4ce1-427e-97cd-0ca5f0c1b972.png" alt="img"></p>
-<h3 id="5-四地址指令"><a href="#5-四地址指令" class="headerlink" title="5. 四地址指令"></a>5. 四地址指令</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700529860336-14105e7b-4bb1-4e34-92b0-0551537b255b.png" alt="img"></p>
+<p>进行单位换算为<img src="https://cdn.nlark.com/yuque/__latex/47a0f3528006ad0757aa3a00b3fd6f5e.svg" alt="img">* <img src="https://cdn.nlark.com/yuque/__latex/f21b0a508bad7e226d4eebcb732edd1a.svg" alt="img">位 = 4 K</p>
+<h3 id="4-三地址指令">4. 三地址指令</h3>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700529808503-fc9a6875-4ce1-427e-97cd-0ca5f0c1b972.png" alt="img"></p>
+<h3 id="5-四地址指令">5. 四地址指令</h3>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35630100/1700529860336-14105e7b-4bb1-4e34-92b0-0551537b255b.png" alt="img"></p>
 <p>特殊点：</p>
 <p>正常情况下取指令之后PC+1，指向下一条指令</p>
 <p>四指令地址：取执行指令后，将PC的值修改为<img src="https://cdn.nlark.com/yuque/__latex/e639cfa67e1a86f2b6223153524439bc.svg" alt="img">（下址）所指地址</p>
-<h2 id="4-1-2-定长操作码指令格式"><a href="#4-1-2-定长操作码指令格式" class="headerlink" title="4.1.2 定长操作码指令格式"></a>4.1.2 定长操作码指令格式</h2><p><strong>定长操作码</strong>指令在指令的最高部分分配若干位（定长）表示操作码。</p>
+<h2 id="4-1-2-定长操作码指令格式">4.1.2 定长操作码指令格式</h2>
+<p><strong>定长操作码</strong>指令在指令的最高部分分配若干位（定长）表示操作码。</p>
 <p>一般n位操作码字段的指令系统最大能表示<img src="https://cdn.nlark.com/yuque/__latex/055ce37910d06a8239ef5a1ee87765f5.svg" alt="img">条指令</p>
-<h2 id="4-1-3-扩展操作码指令格式"><a href="#4-1-3-扩展操作码指令格式" class="headerlink" title="4.1.3 扩展操作码指令格式"></a>4.1.3 扩展操作码指令格式</h2><h3 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h3><p>在指令字长有限的前提下保持比较丰富的指令种类，可采用<strong>可变长度操作码</strong>，即全部指令的操作码字段的位数不固定，且分散地放在指令字的不同位置上。</p>
-<h3 id="实现方式："><a href="#实现方式：" class="headerlink" title="实现方式："></a>实现方式：</h3><p>定长指令字结构+可变长操作码 -&gt; 扩展操作码指令格式</p>
+<h2 id="4-1-3-扩展操作码指令格式">4.1.3 扩展操作码指令格式</h2>
+<h3 id="目的：">目的：</h3>
+<p>在指令字长有限的前提下保持比较丰富的指令种类，可采用<strong>可变长度操作码</strong>，即全部指令的操作码字段的位数不固定，且分散地放在指令字的不同位置上。</p>
+<h3 id="实现方式：">实现方式：</h3>
+<p>定长指令字结构+可变长操作码 -&gt; 扩展操作码指令格式</p>
 <p><strong>扩展操作码</strong> 使操作码的长度随地址码的减少而增加，不同地址数的指令可具有不同长度的操作码，从而在满足需要的前提下有效缩短指令字长</p>
-<h2 id="4-1-4-指令分类（按操作类型分类）"><a href="#4-1-4-指令分类（按操作类型分类）" class="headerlink" title="4.1.4 指令分类（按操作类型分类）"></a>4.1.4 指令分类（按操作类型分类）</h2><h3 id="1-数据传送（数据传送类：进行主存和CPU之间的数据传送）"><a href="#1-数据传送（数据传送类：进行主存和CPU之间的数据传送）" class="headerlink" title="1. 数据传送（数据传送类：进行主存和CPU之间的数据传送）"></a>1. 数据传送（数据传送类：进行主存和CPU之间的数据传送）</h3><ol>
-<li><ol>
+<h2 id="4-1-4-指令分类-按操作类型分类">4.1.4 指令分类（按操作类型分类）</h2>
+<h3 id="1-数据传送-数据传送类：进行主存和cpu之间的数据传送">1. 数据传送（数据传送类：进行主存和CPU之间的数据传送）</h3>
+<ol>
+<li>
+<ol>
 <li>LOAD：从内存单元读取数据到CPU寄存器（LOAD）</li>
 <li>STORE：把CPU寄存器写数据到内存单元（STORE）</li>
 <li>MOV：传输指令通常由寄存器之间的传送（MOV）</li>
 </ol>
 </li>
 </ol>
-<h3 id="2-运算类"><a href="#2-运算类" class="headerlink" title="2. 运算类"></a>2. 运算类</h3><p>算数与逻辑运算：</p>
+<h3 id="2-运算类">2. 运算类</h3>
+<p>算数与逻辑运算：</p>
 <blockquote>
 <p>ADD：加</p>
 <p>SUB：减</p>
@@ -276,12 +306,14 @@
 <p>NOT：取反</p>
 <p>XOR：异或</p>
 </blockquote>
-<h3 id="3-移位操作"><a href="#3-移位操作" class="headerlink" title="3. 移位操作"></a>3. 移位操作</h3><ol>
+<h3 id="3-移位操作">3. 移位操作</h3>
+<ol>
 <li>算数移位</li>
 <li>逻辑移位</li>
 <li>循环移位</li>
 </ol>
-<h3 id="4-转移操作"><a href="#4-转移操作" class="headerlink" title="4. 转移操作"></a>4. 转移操作</h3><blockquote>
+<h3 id="4-转移操作">4. 转移操作</h3>
+<blockquote>
 <p>JMP：无条件转移</p>
 <p>BRANCH：条件转移</p>
 <p>CALL：调用</p>
@@ -290,17 +322,22 @@
 </blockquote>
 <p>区分：</p>
 <ul>
-<li><p><strong>无条件转移指令</strong>在任何情况下都执行转移操作</p>
+<li>
+<p><strong>无条件转移指令</strong>在任何情况下都执行转移操作</p>
 </li>
-<li><p><strong>条件转移指令</strong>仅在特定条件满足时才执行转移操作，其中转移条件一般是某个标志位的值，或几个标志位的组合</p>
+<li>
+<p><strong>条件转移指令</strong>仅在特定条件满足时才执行转移操作，其中转移条件一般是某个标志位的值，或几个标志位的组合</p>
 </li>
-<li><p>执行<strong>调用指令</strong>是必须保存下一条指令的地址（返回地址），当子程序执行结束时，根据返回地址返回到主程序继续执行</p>
+<li>
+<p>执行<strong>调用指令</strong>是必须保存下一条指令的地址（返回地址），当子程序执行结束时，根据返回地址返回到主程序继续执行</p>
 </li>
-<li><p><strong>转移指令</strong>则不返回执行</p>
+<li>
+<p><strong>转移指令</strong>则不返回执行</p>
 </li>
 </ul>
-<h3 id="5-输入输出类"><a href="#5-输入输出类" class="headerlink" title="5. 输入输出类"></a>5. 输入输出类</h3><p>CPU与外部设备</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://happy-superman.github.io/">HappySuperman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://happy-superman.github.io/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/">http://happy-superman.github.io/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/computer/">computer</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/06/2023-12-3-TUCTF-NBCTF/" title="2023TUCTF&amp;NBCTF-Crypto&amp;Web"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">2023TUCTF&amp;NBCTF-Crypto&amp;Web</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/22/2023-11-22-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="博客搭建记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">博客搭建记录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/11/22/2023-11-22-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="博客搭建记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-22</div><div class="title">博客搭建记录</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">HappySuperman</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/happy-Superman"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/happy-Superman" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://blog.csdn.net/jayq1?type=blog" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#4-1-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">4.1 指令系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-1-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 指令的基本格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">整体框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9B%B6%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">1. 零地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%80%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.3.</span> <span class="toc-text">2. 一地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8C%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.4.</span> <span class="toc-text">3. 二地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%89%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.5.</span> <span class="toc-text">4. 三地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%9B%9B%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.6.</span> <span class="toc-text">5. 四地址指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-2-%E5%AE%9A%E9%95%BF%E6%93%8D%E4%BD%9C%E7%A0%81%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 定长操作码指令格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-3-%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C%E7%A0%81%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">4.1.3 扩展操作码指令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">目的：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">实现方式：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-4-%E6%8C%87%E4%BB%A4%E5%88%86%E7%B1%BB%EF%BC%88%E6%8C%89%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">4.1.4 指令分类（按操作类型分类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%EF%BC%88%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E7%B1%BB%EF%BC%9A%E8%BF%9B%E8%A1%8C%E4%B8%BB%E5%AD%98%E5%92%8CCPU%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. 数据传送（数据传送类：进行主存和CPU之间的数据传送）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%90%E7%AE%97%E7%B1%BB"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. 运算类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.3.</span> <span class="toc-text">3. 移位操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BD%AC%E7%A7%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.4.</span> <span class="toc-text">4. 转移操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B1%BB"><span class="toc-number">1.4.5.</span> <span class="toc-text">5. 输入输出类</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/15/2024-01-13-nssRound16Cry/" title="2024NssRound16-Crypto">2024NssRound16-Crypto</a><time datetime="2024-01-14T17:32:45.115Z" title="Created 2024-01-15 01:32:45">2024-01-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/06/2023-12-3-TUCTF-NBCTF/" title="2023TUCTF&amp;NBCTF-Crypto&amp;Web">2023TUCTF&amp;NBCTF-Crypto&amp;Web</a><time datetime="2023-12-06T14:22:49.347Z" title="Created 2023-12-06 22:22:49">2023-12-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" title="【计组学习笔记】第四章——指令系统">【计组学习笔记】第四章——指令系统</a><time datetime="2023-11-23T13:42:09.733Z" title="Created 2023-11-23 21:42:09">2023-11-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/22/2023-11-22-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="博客搭建记录">博客搭建记录</a><time datetime="2023-11-21T18:00:54.216Z" title="Created 2023-11-22 02:00:54">2023-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/21/2023-11-18-HECTF/" title="2023HECTF">2023HECTF</a><time datetime="2023-11-21T07:35:47.230Z" title="Created 2023-11-21 15:35:47">2023-11-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By HappySuperman</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<h3 id="5-输入输出类">5. 输入输出类</h3>
+<p>CPU与外部设备</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://happy-superman.github.io/">HappySuperman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://happy-superman.github.io/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/">http://happy-superman.github.io/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/computer/">computer</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/06/2023-12-3-TUCTF-NBCTF/" title="2023TUCTF&amp;NBCTF-Crypto&amp;Web"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">2023TUCTF&amp;NBCTF-Crypto&amp;Web</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/22/2023-11-22-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="博客搭建记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">博客搭建记录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/11/22/2023-11-22-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="博客搭建记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-22</div><div class="title">博客搭建记录</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">HappySuperman</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/happy-Superman"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/happy-Superman" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://blog.csdn.net/jayq1?type=blog" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#4-1-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">4.1 指令系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-1-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 指令的基本格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">整体框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9B%B6%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">1. 零地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%80%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.3.</span> <span class="toc-text">2. 一地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8C%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.4.</span> <span class="toc-text">3. 二地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%89%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.5.</span> <span class="toc-text">4. 三地址指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%9B%9B%E5%9C%B0%E5%9D%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.6.</span> <span class="toc-text">5. 四地址指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-2-%E5%AE%9A%E9%95%BF%E6%93%8D%E4%BD%9C%E7%A0%81%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 定长操作码指令格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-3-%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C%E7%A0%81%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">4.1.3 扩展操作码指令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">目的：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">实现方式：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-4-%E6%8C%87%E4%BB%A4%E5%88%86%E7%B1%BB-%E6%8C%89%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text">4.1.4 指令分类（按操作类型分类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E7%B1%BB%EF%BC%9A%E8%BF%9B%E8%A1%8C%E4%B8%BB%E5%AD%98%E5%92%8Ccpu%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. 数据传送（数据传送类：进行主存和CPU之间的数据传送）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%90%E7%AE%97%E7%B1%BB"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. 运算类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%A7%BB%E4%BD%8D%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.3.</span> <span class="toc-text">3. 移位操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BD%AC%E7%A7%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.4.</span> <span class="toc-text">4. 转移操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B1%BB"><span class="toc-number">1.4.5.</span> <span class="toc-text">5. 输入输出类</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/15/2024-01-13-nssRound16Cry/" title="2024NssRound16-Crypto">2024NssRound16-Crypto</a><time datetime="2024-01-14T17:32:45.115Z" title="Created 2024-01-15 01:32:45">2024-01-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/06/2023-12-3-TUCTF-NBCTF/" title="2023TUCTF&amp;NBCTF-Crypto&amp;Web">2023TUCTF&amp;NBCTF-Crypto&amp;Web</a><time datetime="2023-12-06T14:22:49.347Z" title="Created 2023-12-06 22:22:49">2023-12-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/23/2023-11-22-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" title="【计组学习笔记】第四章——指令系统">【计组学习笔记】第四章——指令系统</a><time datetime="2023-11-23T13:42:09.733Z" title="Created 2023-11-23 21:42:09">2023-11-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/22/2023-11-22-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" title="博客搭建记录">博客搭建记录</a><time datetime="2023-11-21T18:00:54.216Z" title="Created 2023-11-22 02:00:54">2023-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/21/2023-11-18-HECTF/" title="2023HECTF">2023HECTF</a><time datetime="2023-11-21T07:35:47.230Z" title="Created 2023-11-21 15:35:47">2023-11-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By HappySuperman</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
