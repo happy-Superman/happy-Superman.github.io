@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>【SRC】小程序抓包巨详细配置，一个Burp就够了，但是可以更优雅！</title>
+      <link href="/2024/07/21/2024-07-21-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8A%93%E5%8C%85/"/>
+      <url>/2024/07/21/2024-07-21-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8A%93%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="小程序抓包配置">小程序抓包配置</h1><h2 id="0x00-前言">0x00 前言</h2><p>其实在PC端抓微信小程序的包，只需要一个<code>BurpSuite</code>就足够了，但是为了避免抓一些没用的包，减少对小程序抓包测试过程中的干扰，我们可以配合使用一个工具<code>proxifier</code>，当然如果你只是想体验一下抓包小程序的过程，不下这个工具也行，本篇文章会介绍直接便捷的使用Burp抓包的过程，第二部分会介绍配合proxifier的使用，也会给出proxifier的安装破解教程</p><p>！！！！！个人超级大避坑点：一定要把burp的证书导入到电脑中！！！</p><h2 id="0x01-直接使用burpsuite抓包">0x01 直接使用BurpSuite抓包</h2><p>首先第一步，一定一定要把burpsuite的证书装在电脑里面，之前在浏览器抓包只导入到浏览器里面了，但是对于微信这种程序，我们需要把证书装在电脑本机</p><p>首先开启burp后，配置一个端口</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111185.png" alt="image-20240721103235045"></p><p>然后去下载证书</p><p>方法就是在浏览器访问http://127.0.0.1:7777</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111186.png" alt="image-20240721104909174"></p><p>下载完直接导入就行</p><p>导入证书的流程</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111187.png" alt="image-20240721103148732"></p><p>可能注意要把证书的后缀der手动改成cer</p><p>登微信 手动设置一下代理</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111188.png" alt="image-20240721105051881"></p><p>但是这样好像没办法抓住，推测原因可能是这个只是让微信走了这个代理，但是小程序是另一个应用程序，所以没法抓</p><p>所以开一下全局本地代理就好了</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111189.png" alt="image-20240721103532763"></p><p>OK 到此成功抓到</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111190.png" alt="image-20240721105435401"></p><h2 id="0x02-配合proxifier">0x02 配合Proxifier</h2><p>上面存在一个明显的弊端，就是本地的所有程序都会走7777端口，会导致抓到一些没用的包干扰自己，所以装一个Proxifier起到优化作用，其作用可以指定一些程序走指定端口，其他走默认</p><p>下载地址：就去官网就行，虽然是30天免费使用，但是可以破解 <a href="https://www.proxifier.com/">https://www.proxifier.com/</a> 直接下那个exe即可</p><p>注册机：<a href="https://github.com/y9nhjy/Proxifier-Keygen?tab=readme-ov-file">https://github.com/y9nhjy/Proxifier-Keygen?tab=readme-ov-file</a> 运行一下python文件 用第一个就行</p><p>打开一个小程序 确定一下程序位置</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111191.png" alt="image-20240721110217600"></p><p>打开文件位置即可</p><p>配置1</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111192.png" alt="image-20240721110325640"></p><p>配置2</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111193.png" alt="image-20240721110520753"></p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111194.png" alt="image-20240721110553862"></p><p>最后勾选一下就可以启动了</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111195.png" alt="image-20240721110642094"></p><p>注意这种情况下就不用设置本地代理咯</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111196.png" alt="image-20240721110709576"></p><p>成功抓包</p><p><img src="https://gitee.com/happy_superman/happy/raw/master/202407211111198.png" alt="image-20240721110948231"></p><hr><p>OK兄弟们 上面就是小程序抓包的详细配置过程啦，希望对大家有帮助，祝师傅们在挖洞的路上越来越牛逼</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> SRC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小程序抓包 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【Java安全】基础配置篇-01</title>
       <link href="/2024/07/19/2024-07-19-Java%E5%AE%89%E5%85%A801/"/>
       <url>/2024/07/19/2024-07-19-Java%E5%AE%89%E5%85%A801/</url>
