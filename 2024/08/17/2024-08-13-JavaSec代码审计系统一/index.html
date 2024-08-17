@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【JavaSec】代码审计01-SpringMVC图书购物系统 | happySu</title><meta name="author" content="happySu"><meta name="copyright" content="happySu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="Java安全入门基础篇学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【JavaSec】代码审计01-SpringMVC图书购物系统">
+<meta property="og:url" content="http://happy-superman.github.io/2024/08/17/2024-08-13-JavaSec%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%B3%BB%E7%BB%9F%E4%B8%80/index.html">
+<meta property="og:site_name" content="happySu">
+<meta property="og:description" content="Java安全入门基础篇学习笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-08-17T04:10:41.566Z">
+<meta property="article:modified_time" content="2024-08-17T06:13:05.308Z">
+<meta property="article:author" content="happySu">
+<meta property="article:tag" content="代码审计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://happy-superman.github.io/2024/08/17/2024-08-13-JavaSec%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%B3%BB%E7%BB%9F%E4%B8%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【JavaSec】代码审计01-SpringMVC图书购物系统',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-17 14:13:05'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 24
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="happySu"><span class="site-name">happySu</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【JavaSec】代码审计01-SpringMVC图书购物系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-08-17T04:10:41.566Z" title="Created 2024-08-17 12:10:41">2024-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-08-17T06:13:05.308Z" title="Updated 2024-08-17 14:13:05">2024-08-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaSec/">JavaSec</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>3mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【JavaSec】代码审计01-SpringMVC图书购物系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="javasec-代码审计01-springmvc图书购物系统">【JavaSec】 代码审计01-SpringMVC图书购物系统</h1>
+<p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/Laverrr/bookstore">https://github.com/Laverrr/bookstore</a></p>
+<h2 id="前期部署">前期部署</h2>
+<p>问题一：</p>
+<p>启动后报错</p>
+<p><code>Cookie值中存在无效字符[44]</code></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533484.png" alt="image-20240812174920405"></p>
+<p>有什么错就去解决，这是因为cookie在设置的时候 逗号的原因</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533104.png" alt="image-20240812174613275"></p>
+<p>根据前端的网址 我们去代码中找</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533856.png" alt="image-20240812174646876"></p>
+<p>看到setcookie</p>
+<p><img src="C:%5CUsers%5Cjayq%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240812174719807.png" alt="image-20240812174719807"></p>
+<p>进入</p>
+<p>发现确实有了逗号 删了之后 可以正常访问了</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533365.png" alt="image-20240812174811801"></p>
+<p>问题二：</p>
+<p>前台无法登录</p>
+<p>感觉可能就是本来就没实现  可以去研究一下 为什么没实现</p>
+<blockquote>
+<p>看完了，一些逻辑是通过js代码实现，所以说，整体是完善的，</p>
+<p>然后我就去排查搜索 jsp页面为什么不能加载外部的js，有的说路径问题，有的说F12看一下有没有404</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533815.png" alt="image-20240813144950219"></p>
+<p><img src="C:%5CUsers%5Cjayq%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240813145011331.png" alt="image-20240813145011331"></p>
+<p>结果都是正常的</p>
+<p>直到看到这篇文章</p>
+<p><img src="C:%5CUsers%5Cjayq%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240813145102182.png" alt="image-20240813145102182"></p>
+<p>显示浏览器有区别，我就想是不是浏览器不行啊，换了一个浏览器果然 从firefox到edge 直接成功</p>
+</blockquote>
+<p>进入后台</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533220.png" alt="image-20240812181204362"></p>
+<p>url ： <a target="_blank" rel="noopener" href="http://localhost:8080/backLogin.do">http://localhost:8080/backLogin.do</a></p>
+<p>admin / admin 登录  在上面这个代码中读取的</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533411.png" alt="image-20240812181252723"></p>
+<blockquote>
+<p>question:</p>
+<ol>
+<li>jsp 和 html的区别</li>
+</ol>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131533750.png" alt="image-20240813095629816"></p>
+<p>个人总结二者区别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.最简单的区别就是，HTML能直接打开，jsp只能发布到Tomact等服务器上才能打开 。</span><br><span class="line">2.定义上HTML页面是静态页面可以直接运行，JSP页面是动态页它运行时需要转换成servlet。</span><br><span class="line">3.他们的表头不同，这个是JSP的头“ &lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;”在表头中有编码格式和倒入包等。</span><br><span class="line">4.也是很好区分的在jsp中用&lt;%%&gt;就可以写Java代码了，而html没有&lt;%%&gt;</span><br><span class="line">5.html是w3c规范的一种网页书写格式，是一种统一协议语言，静态网页。我们上网看的网页都是大部分都是基于html语言的。jsp是一种基于动态语言，jsp可以实现html的所有任务。</span><br></pre></td></tr></table></figure>
+<p>前后端交互中的优缺点：</p>
+</blockquote>
+<hr>
+<p>从前端界面 到后端分析 从admin界面开始</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534596.png" alt="image-20240813094554657"></p>
+<p>主要功能就侧边栏这是三个</p>
+<p><a target="_blank" rel="noopener" href="http://xn--mana-4c8hg59j.do">搜索mana.do</a>  在Controller层找到guideController 当访问这个界面的时候，自动加载 <code>manage/index</code> 界面</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534607.png" alt="image-20240813094749786"></p>
+<p>其中index 是一个jsp文件</p>
+<p>最上面是一个获取时间的函数，其他地方用a标签包裹 进行跳转</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534437.png" alt="image-20240813095825989"></p>
+<p>时间函数是js里面的 不深究</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534723.png" alt="image-20240813095944972"></p>
+<p>a标签跳转，兄弟们可能会疑惑了，明明上面的RequestMapping里面的接口都没有后面的do，为什么额外加一个do后缀呢，其实这是跟依赖相关，便于识别，直接映射到由名称为 <code>springmvc</code> 的 Servlet 来处理。</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534555.png" alt="image-20240813100203516"></p>
+<hr>
+<p>当点击用户管理</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534169.png" alt="image-20240813100523745"></p>
+<p>后端跳转</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534682.png" alt="image-20240813100545077"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131534816.png" alt="image-20240813101144922"></p>
+<blockquote>
+<p>分析一下：</p>
+<p>首先这个逻辑是在Controller层中的UserController中， 推测PageHelper是设置这个界面显示数量的，注意有些数据 统一写在util下的Constant文件里面了<img src="https://gitee.com/happy_superman/happy/raw/master/202408131535481.png" alt="image-20240813102415412"></p>
+<p>然后就是获取用户信息了，顺序是：Controller =&gt; Service =&gt; ServiceImpl =&gt; UserMapper</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535816.png" alt="image-20240813103059278"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535804.png" alt="image-20240813103027727"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535469.png" alt="image-20240813102825843"></p>
+<p>然后进行数据库查询工作</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535775.png" alt="image-20240813103231064"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535920.png" alt="image-20240813103333834"></p>
+<p>最后看resources中的mapper</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535796.png" alt="image-20240813103420264"></p>
+<p>可以看到完整的查询语句，注意这里出现了order by ，使用了<code>$</code>危险查询符号，可能存在sql注入漏洞，但是前端没找到注入点</p>
+</blockquote>
+<p>查询结束，回到视图中的数据</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535355.png" alt="image-20240813103805307"></p>
+<p>记住上面这两个名字，来到user.jsp 进行展示输出</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535371.png" alt="image-20240813103853439"></p>
+<p>注意这里仍然存在两个功能点</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535539.png" alt="image-20240813103939744"></p>
+<h2 id="用户管理">用户管理</h2>
+<h3 id="修改">修改</h3>
+<p>去分析修改的逻辑</p>
+<blockquote>
+<p>首先传入了参数 user.uid</p>
+<p>然后去UserController下的接口<img src="https://gitee.com/happy_superman/happy/raw/master/202408131535252.png" alt="image-20240813105831996"></p>
+<p>使用userService查找用户的过程和上面一样（Controller -&gt; Service -&gt; ServiceImpl -&gt; Mapper -&gt; resourcesMapper)   使用的是<code>#</code>  安全开发 好评</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535823.png" alt="image-20240813110407402"></p>
+<p>主要是去看user-modify</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131535175.png" alt="image-20240813111916818"></p>
+<p>创建了一个表单</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536766.png" alt="image-20240813111904685"></p>
+<p>点击提交按钮后，可以看到上面的action 跳转到modifyUser中去</p>
+<p>更新数据，然后重新加载一遍视图 到此修改工作完美结束</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536075.png" alt="image-20240813112105297"></p>
+<p>补充一下mapper中的数据库查询，安全 好评</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536045.png" alt="image-20240813112405985"></p>
+</blockquote>
+<h3 id="删除">删除</h3>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536432.png" alt="image-20240813112613946"></p>
+<p>这个很明确 删了之后 更新一下表单</p>
+<h2 id="商品管理">商品管理</h2>
+<h3 id="修改">修改</h3>
+<p>存在一个文件上传的点 追踪一下</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536073.png" alt="image-20240813113004943"></p>
+<p>如果直接找不方便的话，配合一下burp抓包</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536723.png" alt="image-20240813113127290"></p>
+<p>关于这个图像 数据库中存储的是名字</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536031.png" alt="image-20240813134716308"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536196.png" alt="image-20240813134727897"></p>
+<p>显然没找到文件上传的点，可能没实现</p>
+<hr>
+<h2 id="普通用户">普通用户</h2>
+<h3 id="注册">注册</h3>
+<p>注册界面的表单 通过js代码来实现</p>
+<p><img src="C:%5CUsers%5Cjayq%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240813140407949.png" alt="image-20240813140407949"></p>
+<p>进入js中后，发现有一个简单的验证，然后发送到Controller层中的一个接口中</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536357.png" alt="image-20240813141104162"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536235.png" alt="image-20240813141123701"></p>
+<p>然后进入进入Controller层后和数据库的常规套路了，这里稍微补充一个密码的知识点，一般引入了这个MD5Utils之后可以实现数据库存储的加密</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536639.png" alt="image-20240813141346563"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131536837.png" alt="image-20240813141513275"></p>
+<p>进来后 感觉没什么功能点</p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131537568.png" alt="image-20240813150714601"></p>
+<p><img src="https://gitee.com/happy_superman/happy/raw/master/202408131537822.png" alt="image-20240813150726746"></p>
+<p>这个系统就先到这吧</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://happy-superman.github.io/">happySu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://happy-superman.github.io/2024/08/17/2024-08-13-JavaSec%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%B3%BB%E7%BB%9F%E4%B8%80/">http://happy-superman.github.io/2024/08/17/2024-08-13-JavaSec%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%B3%BB%E7%BB%9F%E4%B8%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">代码审计</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/17/2024-08-17-Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%9D%E6%8E%A20x00/" title="【JavaSec】反序列化初探（配合URLDNS）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">【JavaSec】反序列化初探（配合URLDNS）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">happySu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/happy-Superman"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/happy-Superman" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://blog.csdn.net/jayq1?type=blog" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javasec-%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A101-springmvc%E5%9B%BE%E4%B9%A6%E8%B4%AD%E7%89%A9%E7%B3%BB%E7%BB%9F"><span class="toc-text">【JavaSec】 代码审计01-SpringMVC图书购物系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E9%83%A8%E7%BD%B2"><span class="toc-text">前期部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-text">修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%86%E5%93%81%E7%AE%A1%E7%90%86"><span class="toc-text">商品管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-text">修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7"><span class="toc-text">普通用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C"><span class="toc-text">注册</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/17/2024-08-13-JavaSec%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%B3%BB%E7%BB%9F%E4%B8%80/" title="【JavaSec】代码审计01-SpringMVC图书购物系统">【JavaSec】代码审计01-SpringMVC图书购物系统</a><time datetime="2024-08-17T04:10:41.566Z" title="Created 2024-08-17 12:10:41">2024-08-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/17/2024-08-17-Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%9D%E6%8E%A20x00/" title="【JavaSec】反序列化初探（配合URLDNS）">【JavaSec】反序列化初探（配合URLDNS）</a><time datetime="2024-08-17T04:10:41.566Z" title="Created 2024-08-17 12:10:41">2024-08-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/02/2024-08-02-%E6%A0%BC%E5%AF%86%E7%A0%81%E7%9B%B8%E5%85%B3/" title="【CTF-Crypto】格密码基础（例题较多，非常适合入门！）">【CTF-Crypto】格密码基础（例题较多，非常适合入门！）</a><time datetime="2024-08-02T07:38:59.396Z" title="Created 2024-08-02 15:38:59">2024-08-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/21/2024-07-21-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8A%93%E5%8C%85/" title="【SRC】小程序抓包巨详细配置，一个Burp就够了，但是可以更优雅！">【SRC】小程序抓包巨详细配置，一个Burp就够了，但是可以更优雅！</a><time datetime="2024-07-21T03:21:04.680Z" title="Created 2024-07-21 11:21:04">2024-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/19/2024-07-19-Java%E5%AE%89%E5%85%A801/" title="【Java安全】基础配置篇-01">【Java安全】基础配置篇-01</a><time datetime="2024-07-19T09:33:42.250Z" title="Created 2024-07-19 17:33:42">2024-07-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By happySu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
